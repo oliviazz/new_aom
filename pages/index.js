@@ -26,8 +26,8 @@ export default function IndexPage({ pets, posts }) {
           <ul>
             {posts.map((post) => (
               <div>
-              <li key={post.title}> {post?.content}</li>
-              <p>{post.title}</p>
+              <li key={post.title}> {post?.title}</li>
+              <p>{post.content}</p>
               </div>
             ))}
           </ul>
