@@ -5,7 +5,7 @@ export default function IndexPage({ pets, posts }) {
   return (
     <>
       <header>
-        <h1>a o m</h1>
+        <h1>*a o m*</h1>
       </header>
       <main>
 
@@ -59,22 +59,10 @@ const client = createClient({
 });
 
 // const client = createClient();
+export async function getServerSideProps({ params }) {
 
-
-export async function getStaticProps() {
-  // const pets = [
-  //   /* {
-  //     _createdAt: "2022-03-08T09:28:00Z",
-  //     _id: "1f69c53d-418a-452f-849a-e92466bb9c75",
-  //     _rev: "xnBg0xhUDzo561jnWODd5e",
-  //     _type: "pet",
-  //     _updatedAt: "2022-03-08T09:28:00Z",
-  //     name: "Bamse"
-  //   } */
-  // ];
   const pets = await client.fetch(`*[_type == "pet"]`);
   const posts = await client.fetch(`*[_type == "post"]`);
-
   return {
     props: {
      
@@ -83,4 +71,38 @@ export async function getStaticProps() {
       
     }
   };
+  // const query = `[_type == 'page' && slug.current == $slug][0]`;
+  // const page = client.fetch(query, { slug: params.slug });
+  // return {
+  //   props: {
+  //     page
+  //   }
+  // }
 }
+// export async function getServerSideProps(context) {
+
+
+
+// export async function getStaticProps() {
+//   // const pets = [
+//   //   /* {
+//   //     _createdAt: "2022-03-08T09:28:00Z",
+//   //     _id: "1f69c53d-418a-452f-849a-e92466bb9c75",
+//   //     _rev: "xnBg0xhUDzo561jnWODd5e",
+//   //     _type: "pet",
+//   //     _updatedAt: "2022-03-08T09:28:00Z",
+//   //     name: "Bamse"
+//   //   } */
+//   // ];
+//   // const pets = await client.fetch(`*[_type == "pet"]`);
+//   // const posts = await client.fetch(`*[_type == "post"]`);
+
+//   // return {
+//   //   props: {
+     
+//   //       'pets': pets,
+//   //       'posts': posts
+      
+//   //   }
+//   // };
+// }
